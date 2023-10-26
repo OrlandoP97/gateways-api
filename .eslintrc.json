@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest/globals": true
+    },
+    "extends": 
+    ["standard",
+    "plugin:jest/recommended"
+    ],
+    "plugins": [
+    "import",
+    "node",
+    "promise",
+    "jest"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+        "semi":"off",
+        "jest/no-focused-tests": "warn",
+        "space-before-function-paren" :"off",
+        "eqeqeq":"off"
+    }
+    
+}
