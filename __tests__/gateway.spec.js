@@ -66,7 +66,7 @@ describe('Testing gateway API', () => {
       devices: [MOCKDEVICE]
     };
     const response = await supertest(app).post('/gateways').send(dataSended);
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(201);
     expect(response.body.serialNumber).toEqual('mockSerial' + uid);
     expect(response.body.devices[0].uid).toEqual(MOCKDEVICE.uid);
   });

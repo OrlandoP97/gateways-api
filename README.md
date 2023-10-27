@@ -1,65 +1,61 @@
-## Gateways
+# Express MongoDB API
 
-[[_TOC_]]
+This is a REST service (JSON/HTTP) for storing information about gateways and their associated devices. The data is stored in a MongoDB database.
 
----
+## Features
 
-:scroll: **START**
+- Express.js for building the REST API
+- MongoDB for storing data
+- Jest for running unit tests
+- Docker for containerization
+- Separate environments for development and production
+- .env file for configuration
 
+## Getting Started
 
-### Introduction
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-This sample project is managing gateways - master devices that control multiple peripheral devices.
+### Prerequisites
 
----
+You need to have Node.js and Docker with docker-compose installed on your machine.
 
-### Task description
+### Installing
 
-Your task is to create a REST service (JSON/HTTP) for storing information about these gateways and their associated devices. This information must be stored in the database.
+1. Clone the repository to your local machine.
+2. Navigate to the project directory and run `npm install` to install the necessary dependencies.
+3. Create a `.env` file in the root directory and add your environment variables.
+4. For development, use `docker-compose -f dev-compose.yaml up` to start the database and mongo-express to visualize the database. To run the server in development mode, you also need to execute `npm run dev` in another terminal.
+5. For production, use `docker-compose up` to start the production server.
 
-A **Gateway** has:
-- unique serial number (string);
-- human-readable name (string);
-- IPv4 address (to be validated);
-- multiple associated peripheral devices;
+## Environment Variables
 
-Each **Peripheral Device** has:
-- UID (number);
-- vendor (string);
-- date created;
-- status (online/offline).
+The project requires the following environment variables to be set in a `.env` file:
 
-When storing a gateway, any field marked as “to be validated” must be validated and an error returned if it is invalid. Also, no more that 10 peripheral devices are allowed for a gateway.
+```
+DB_HOST=localhost
+DB_USERNAME=admin
+DB_PASSWORD=adminpassword
+DB_NAME=gatewayDB
+DB_PORT=27017
+```
 
-The service should allow:
-- storing a new gateway;
-- displaying information about all stored gateways (and their devices);
-- displaying details about a single gateway;
-- adding and removing a peripheral device from a gateway;
+These variables are used to configure the connection to the MongoDB database.
 
-> Feel free to make assumptions for the design approach.
+## Running the tests
 
----
+The project includes unit tests that run with Jest. You can run them using the `npm run test` command.
 
-### Requirements
+## Deployment
 
-While implementing your solution **please take care of the following requirements**:
+The project is dockerized and includes separate environments for development and production. To build the Docker image, run `docker build -t your-image-name .`. To run the Docker container, use the `docker run -p 5000:5000 -d your-image-name` command.
 
-#### Functional requirements
+## Built With
 
-- There is no need for UI;
-- Prevent the gateway from receiving more than 10 peripheral devices;
+- [Express.js](https://expressjs.com/) - The web framework used
+- [MongoDB](https://www.mongodb.com/) - The database used
+- [Docker](https://www.docker.com/) - For containerization
+- [Jest](https://jestjs.io/) - For running unit tests
 
----
+## Authors
 
-#### Non-functional requirements
-
-- Input/output data must be in JSON format;
-- Your project must be buildable and runnable;
-- Your project must have a README file with build/run/test instructions (use DB that can be run locally, e.g. in-memory, via container);
-- Unit tests;
-- Use a framework of your choice, but popular, up-to-date, and long-term support versions are recommended.
-
----
-
-:scroll: **END** 
+- **Orlando Pantoja** - [YourName](https://github.com/OrlandoP97)

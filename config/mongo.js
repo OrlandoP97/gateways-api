@@ -1,11 +1,15 @@
 import dotenv from 'dotenv';
-import dotenvExpand from 'dotenv-expand';
 import { connect } from 'mongoose';
 
-const env = dotenv.config();
-dotenvExpand.expand(env);
+dotenv.config();
+
+const dbHost = process.env.DB_HOST;
+const dbPort = process.env.DB_PORT;
+const dbName = process.env.DB_NAME;
+
+const databaseUrl = `mongodb://${dbHost}:${dbPort}/${dbName}`;
 // Connect to MongoDB
-connect(process.env.DATABASE_URL, {
+connect(databaseUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })

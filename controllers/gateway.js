@@ -3,7 +3,7 @@ export const createGateway = async (req, res) => {
   const gateway = new Gateway(req.body);
   try {
     await gateway.save();
-    res.send(gateway);
+    res.status(201).send(gateway);
   } catch (err) {
     res.status(422).send(err.message);
   }

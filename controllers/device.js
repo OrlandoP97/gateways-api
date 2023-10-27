@@ -32,7 +32,6 @@ export const removeDeviceFromGateway = async (req, res) => {
         );
 
         if (device) {
-          console.log(device);
           return Gateway.findOneAndUpdate(
             { serialNumber: req.params.serialNumber },
             { $pull: { devices: { uid: req.params.uid } } },

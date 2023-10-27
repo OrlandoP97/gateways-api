@@ -20,17 +20,6 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=adminpassword
     depends_on:
       - mongo
-  
-  app:
-    build: -t gateways-express-api .
-    env_file:
-      - .env
-    restart: always
-    ports:
-      - 3000:3000
-    depends_on:
-      - mongo
-    environment:
-      - DB_HOST=mongo
+ 
 volumes:
   mongo-data:
