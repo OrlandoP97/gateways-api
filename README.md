@@ -58,4 +58,4 @@ The project is dockerized and includes separate environments for development and
 
 ## Authors
 
-- **Orlando Pantoja** - [YourName](https://github.com/OrlandoP97)
+- **Orlando Pantoja** - [Orlando](https://github.com/OrlandoP97)
